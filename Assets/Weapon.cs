@@ -112,4 +112,12 @@ public class Weapon : MonoBehaviour
 
         return (null, 0f);
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy") && state == WeaponState.Firing)
+        {
+            other.GetComponent<Enemy>().TakeDamage(damage);
+        }
+    }
 }

@@ -5,8 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed;
-
     public float coolDown;
+    public float health;
 
     GameObject player;
 
@@ -37,5 +37,12 @@ public class Enemy : MonoBehaviour
 
             remainingCoolDown = coolDown;
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+            Destroy(gameObject);
     }
 }
