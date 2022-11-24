@@ -6,7 +6,7 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     public float speed;
-    public float life;
+    public float followerRange;
 
     public TextMeshProUGUI lifeText;
 
@@ -35,11 +35,6 @@ public class Player : MonoBehaviour
 
     void UpdateLifeText()
     {
-        lifeText.text = life.ToString("0") + " HP";
-    }
-
-    public void TakeDamage(float damage)
-    {
-        life -= damage;
+        lifeText.text = "Life: " + GetComponent<Health>().health;
     }
 }

@@ -31,10 +31,17 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && remainingCoolDown <= 0)
-        {
-            other.GetComponent<Player>().TakeDamage(1);
+        if (remainingCoolDown > 0f)
+            return;
 
+        if (other.gameObject.tag != "Player" || other.gameObject.tag != "Follower")
+            return;
+
+        var health = other.GetComponent<Health>();
+
+        if (health != null)
+        {
+            health.TakeDamage(1f);
             remainingCoolDown = coolDown;
         }
     }
