@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag != "Player" && other.gameObject.tag != "Follower")
+        if (other.gameObject.tag != "Player")
             return;
 
         isAttacking = true;

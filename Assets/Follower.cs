@@ -11,6 +11,7 @@ public class Follower : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         movement = GetComponent<Movement>();
+        SetUpMaxDistanceToPlayer();
     }
 
     void Update()
@@ -20,18 +21,7 @@ public class Follower : MonoBehaviour
 
     void HandleMovement()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) > player.followerRange)
-        {
-            MoveTowardsPlayer();
-            return;
-        }
-
         MoveTowardsClosestEnemy();
-    }
-
-    void MoveTowardsPlayer()
-    {
-        movement.SetTarget(player.transform);
     }
 
     void MoveTowardsClosestEnemy()
@@ -49,16 +39,16 @@ public class Follower : MonoBehaviour
             }
         }
 
-        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-        if (distanceToPlayer + 0.5 > player.followerRange)
-        {
-            movement.Stop();
-            return;
-        }
-
         if (closestEnemy != null)
         {
             movement.SetTarget(closestEnemy);
         }
+    }
+
+    void SetUpMaxDistanceToPlayer()
+    {
+        var distanceJoint = GetComponent<DistanceJoint2D>();
+        distanceJoint.distance = player.followerRange;
+        distanceJoint.connectedBody = player.GetComponent<Rigidbody2D>();
     }
 }
