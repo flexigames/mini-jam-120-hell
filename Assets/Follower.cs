@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Follower : MonoBehaviour
 {
-    public float speed;
-
     Player player;
+    Movement movement;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        movement = GetComponent<Movement>();
     }
 
     void Update()
@@ -31,9 +31,7 @@ public class Follower : MonoBehaviour
 
     void MoveTowardsPlayer()
     {
-        Vector3 direction = player.transform.position - transform.position;
-        direction.Normalize();
-        transform.position += direction * speed * Time.deltaTime;
+        movement.SetTarget(player.transform);
     }
 
     void MoveTowardsClosestEnemy()
@@ -51,17 +49,16 @@ public class Follower : MonoBehaviour
             }
         }
 
+        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        if (distanceToPlayer + 0.5 > player.followerRange)
+        {
+            movement.Stop();
+            return;
+        }
+
         if (closestEnemy != null)
         {
-            Vector3 direction = closestEnemy.transform.position - transform.position;
-            direction.Normalize();
-
-            var newPosition = transform.position + direction * speed * Time.deltaTime;
-
-            if (Vector3.Distance(newPosition, player.transform.position) <= player.followerRange)
-            {
-                transform.position = newPosition;
-            }
+            movement.SetTarget(closestEnemy);
         }
     }
 }

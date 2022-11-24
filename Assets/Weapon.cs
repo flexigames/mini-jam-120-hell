@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum WeaponState
+public enum WeaponState
 {
     Idle,
     Firing,
@@ -100,17 +100,24 @@ public class Weapon : MonoBehaviour
     (GameObject, float) FindClosestEnemy()
     {
         float closestDistance = float.MaxValue;
-        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if (enemies.Length == 0)
+            return (null, 0f);
+
+        GameObject closestEnemy = null;
+
+        foreach (GameObject enemy in enemies)
         {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
             if (distance < closestDistance)
             {
                 closestDistance = distance;
-                return (enemy, distance);
+                closestEnemy = enemy;
             }
         }
 
-        return (null, 0f);
+        return (closestEnemy, closestDistance);
     }
 
     void OnTriggerEnter2D(Collider2D other)

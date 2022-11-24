@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed;
     public float coolDown;
     public float health;
 
     float remainingCoolDown = 0f;
 
     bool isAttacking = false;
+
+    Movement movement;
+
+    void Start()
+    {
+        movement = GetComponent<Movement>();
+    }
 
     void Update()
     {
@@ -23,18 +29,20 @@ public class Enemy : MonoBehaviour
     void HandleMovement()
     {
         if (isAttacking)
+        {
+            movement.Stop();
             return;
+        }
 
         var target = FindClosestTarget();
 
         if (target == null)
+        {
+            movement.Stop();
             return;
+        }
 
-        Vector3 direction = target.transform.position - transform.position;
-
-        direction.Normalize();
-
-        transform.position += direction * speed * Time.deltaTime;
+        movement.SetTarget(target);
     }
 
     void OnTriggerStay2D(Collider2D other)
