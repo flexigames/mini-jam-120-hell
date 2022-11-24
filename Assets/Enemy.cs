@@ -8,25 +8,28 @@ public class Enemy : MonoBehaviour
     public float coolDown;
     public float health;
 
-    GameObject player;
-
     float remainingCoolDown = 0f;
-
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
 
     void Update()
     {
-        Vector3 direction = player.transform.position - transform.position;
+        HandleMovement();
+
+        if (remainingCoolDown > 0f)
+            remainingCoolDown -= Time.deltaTime;
+    }
+
+    void HandleMovement()
+    {
+        var target = FindClosestTarget();
+
+        if (target == null)
+            return;
+
+        Vector3 direction = target.transform.position - transform.position;
 
         direction.Normalize();
 
         transform.position += direction * speed * Time.deltaTime;
-
-        if (remainingCoolDown > 0f)
-            remainingCoolDown -= Time.deltaTime;
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -44,6 +47,27 @@ public class Enemy : MonoBehaviour
             health.TakeDamage(1f);
             remainingCoolDown = coolDown;
         }
+    }
+
+    GameObject FindClosestTarget()
+    {
+        var followers = GameObject.FindGameObjectsWithTag("Follower");
+        var player = GameObject.FindGameObjectWithTag("Player");
+
+        float closestDistance = Vector3.Distance(transform.position, player.transform.position);
+        var target = player;
+
+        foreach (GameObject candidate in followers)
+        {
+            float distance = Vector3.Distance(transform.position, candidate.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                target = candidate;
+            }
+        }
+
+        return target;
     }
 
     public void TakeDamage(float damage)
