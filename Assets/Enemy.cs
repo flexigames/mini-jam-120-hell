@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
 
     float remainingCoolDown = 0f;
 
+    bool isAttacking = false;
+
     void Update()
     {
         HandleMovement();
@@ -20,6 +22,9 @@ public class Enemy : MonoBehaviour
 
     void HandleMovement()
     {
+        if (isAttacking)
+            return;
+
         var target = FindClosestTarget();
 
         if (target == null)
@@ -34,19 +39,31 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
+        if (other.gameObject.tag != "Player" && other.gameObject.tag != "Follower")
+            return;
+
+        isAttacking = true;
+
+        Attack(other.gameObject);
+    }
+
+    void Attack(GameObject target)
+    {
         if (remainingCoolDown > 0f)
             return;
 
-        if (other.gameObject.tag != "Player" || other.gameObject.tag != "Follower")
-            return;
-
-        var health = other.GetComponent<Health>();
+        var health = target.GetComponent<Health>();
 
         if (health != null)
         {
             health.TakeDamage(1f);
             remainingCoolDown = coolDown;
         }
+    }
+
+    void OnTriggerExit2D()
+    {
+        isAttacking = false;
     }
 
     GameObject FindClosestTarget()
