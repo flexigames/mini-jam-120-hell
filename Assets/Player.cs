@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public float speed;
     public float followerRange;
 
+    public float pickupRange;
+
     int level = 1;
 
     int xp = 0;
@@ -23,6 +25,8 @@ public class Player : MonoBehaviour
         HandleMovement();
 
         UpdateUI();
+
+        PullDropsWithinRange();
     }
 
     void HandleMovement()
@@ -66,5 +70,22 @@ public class Player : MonoBehaviour
     int getLevelUpCost()
     {
         return 5 + (level - 1) * 10;
+    }
+
+    void PullDropsWithinRange()
+    {
+        var pickups = GameObject.FindGameObjectsWithTag("Drop");
+        foreach (var pickup in pickups)
+        {
+            float distance = Vector3.Distance(transform.position, pickup.transform.position);
+            if (distance < pickupRange)
+            {
+                pickup.transform.position = Vector3.MoveTowards(
+                    pickup.transform.position,
+                    transform.position,
+                    11 * Time.deltaTime
+                );
+            }
+        }
     }
 }

@@ -5628,6 +5628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   followerRange: 4
+  pickupRange: 2
   lifeText: {fileID: 587390120}
   xpBar: {fileID: 124823375}
   followerPrefab: {fileID: 9080663257090545489, guid: 92a8d2437738d4255ace023614e45620, type: 3}
