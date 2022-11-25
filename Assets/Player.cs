@@ -5,7 +5,6 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
-    public float speed;
     public float followerRange;
 
     public float pickupRange;
@@ -19,6 +18,13 @@ public class Player : MonoBehaviour
     public GameObject xpBar;
 
     public GameObject followerPrefab;
+
+    Movement movement;
+
+    void Start()
+    {
+        movement = GetComponent<Movement>();
+    }
 
     void Update()
     {
@@ -37,12 +43,7 @@ public class Player : MonoBehaviour
             0
         );
 
-        if (direction.magnitude < 0.01f)
-            return;
-
-        direction.Normalize();
-
-        transform.position += direction * speed * Time.deltaTime;
+        movement.SetDirection(direction);
     }
 
     void UpdateUI()
