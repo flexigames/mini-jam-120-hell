@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     public float coolDown;
     public float health;
 
+    public GameObject deathDrop;
+
     float remainingCoolDown = 0f;
 
     bool isAttacking = false;
@@ -99,6 +101,13 @@ public class Enemy : MonoBehaviour
     {
         health -= damage;
         if (health <= 0)
-            Destroy(gameObject);
+            OnDeath();
+    }
+
+    void OnDeath()
+    {
+        Destroy(gameObject);
+        if (deathDrop != null)
+            Instantiate(deathDrop, transform.position, Quaternion.identity);
     }
 }

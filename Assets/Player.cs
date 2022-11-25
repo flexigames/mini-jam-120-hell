@@ -8,13 +8,17 @@ public class Player : MonoBehaviour
     public float speed;
     public float followerRange;
 
+    int xp = 0;
+
     public TextMeshProUGUI lifeText;
+
+    public TextMeshProUGUI xpText;
 
     void Update()
     {
         HandleMovement();
 
-        UpdateLifeText();
+        UpdateText();
     }
 
     void HandleMovement()
@@ -33,8 +37,14 @@ public class Player : MonoBehaviour
         transform.position += direction * speed * Time.deltaTime;
     }
 
-    void UpdateLifeText()
+    void UpdateText()
     {
         lifeText.text = "Life: " + GetComponent<Health>().health;
+        xpText.text = "XP: " + xp;
+    }
+
+    public void AddXP(int amount)
+    {
+        xp += amount;
     }
 }
