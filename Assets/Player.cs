@@ -12,13 +12,13 @@ public class Player : MonoBehaviour
 
     public TextMeshProUGUI lifeText;
 
-    public TextMeshProUGUI xpText;
+    public GameObject xpBar;
 
     void Update()
     {
         HandleMovement();
 
-        UpdateText();
+        UpdateUI();
     }
 
     void HandleMovement()
@@ -37,10 +37,10 @@ public class Player : MonoBehaviour
         transform.position += direction * speed * Time.deltaTime;
     }
 
-    void UpdateText()
+    void UpdateUI()
     {
         lifeText.text = "Life: " + GetComponent<Health>().health;
-        xpText.text = "XP: " + xp;
+        xpBar.transform.localScale = new Vector3(xp / 10f, 1, 1);
     }
 
     public void AddXP(int amount)
