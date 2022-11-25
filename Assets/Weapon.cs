@@ -120,11 +120,11 @@ public class Weapon : MonoBehaviour
         return (closestEnemy, closestDistance);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.CompareTag("Enemy") && state == WeaponState.Firing)
+        if (other.gameObject.CompareTag("Enemy") && state == WeaponState.Firing)
         {
-            other.GetComponent<Enemy>().TakeDamage(damage);
+            other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
 }

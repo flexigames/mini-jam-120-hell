@@ -47,14 +47,19 @@ public class Enemy : MonoBehaviour
         movement.SetTarget(target);
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.tag != "Player")
+        if (other.gameObject.tag != "Player" && other.gameObject.tag != "Enemy")
             return;
 
         isAttacking = true;
 
         Attack(other.gameObject);
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        isAttacking = false;
     }
 
     void Attack(GameObject target)
@@ -69,11 +74,6 @@ public class Enemy : MonoBehaviour
             health.TakeDamage(1f);
             remainingCoolDown = coolDown;
         }
-    }
-
-    void OnTriggerExit2D()
-    {
-        isAttacking = false;
     }
 
     GameObject FindClosestTarget()
