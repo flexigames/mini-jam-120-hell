@@ -6121,6 +6121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6325117517867720211, guid: 6ae40da63c1aa41ccad0ed5eae2e437d, type: 3}
   waveInterval: 30
+  tileMap: {fileID: 579442240}
 --- !u!4 &1805090625
 Transform:
   m_ObjectHideFlags: 0

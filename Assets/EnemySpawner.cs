@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
 
     public float waveInterval;
+
+    public Tilemap tileMap;
 
     int waveNumber = 1;
 
@@ -58,7 +61,17 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        var randomPosition = new Vector3(Random.Range(-8f, 8f), Random.Range(-4f, 4f), 0);
+        var randomPosition = getRandomPositionOnTileMap();
         Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
+    }
+
+    Vector3 getRandomPositionOnTileMap()
+    {
+        var randomX = Random.Range(tileMap.cellBounds.xMin + 1, tileMap.cellBounds.xMax - 1);
+        var randomY = Random.Range(tileMap.cellBounds.yMin + 1, tileMap.cellBounds.yMax - 1);
+
+        var randomPosition = new Vector3Int(randomX, randomY, 0);
+
+        return tileMap.CellToWorld(randomPosition);
     }
 }
