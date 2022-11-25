@@ -15,13 +15,44 @@ public class Enemy : MonoBehaviour
 
     Movement movement;
 
+    float timeUntilActive = 1f;
+
     void Start()
     {
         movement = GetComponent<Movement>();
+
+        GetComponent<Collider2D>().enabled = false;
+        gameObject.tag = "Untagged";
+        ChangeAlpha(0.5f);
+    }
+
+    void ChangeAlpha(float alpha)
+    {
+        var spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = new Color(
+            spriteRenderer.color.r,
+            spriteRenderer.color.g,
+            spriteRenderer.color.b,
+            alpha
+        );
     }
 
     void Update()
     {
+        if (timeUntilActive > 0f)
+        {
+            timeUntilActive -= Time.deltaTime;
+
+            if (timeUntilActive <= 0f)
+            {
+                GetComponent<Collider2D>().enabled = true;
+                gameObject.tag = "Enemy";
+                ChangeAlpha(1f);
+            }
+
+            return;
+        }
+
         HandleMovement();
 
         if (remainingCoolDown > 0f)

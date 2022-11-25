@@ -6228,6 +6228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Follower
       objectReference: {fileID: 0}
+    - target: {fileID: 9080663257090545489, guid: 92a8d2437738d4255ace023614e45620, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9080663257090545498, guid: 92a8d2437738d4255ace023614e45620, type: 3}
       propertyPath: m_RootOrder
       value: 7
