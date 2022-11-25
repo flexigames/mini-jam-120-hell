@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.tag != "Player" && other.gameObject.tag != "Enemy")
+        if (other.gameObject.tag != "Player" && other.gameObject.tag != "Follower")
             return;
 
         isAttacking = true;

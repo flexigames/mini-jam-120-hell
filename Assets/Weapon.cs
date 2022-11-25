@@ -16,12 +16,20 @@ public class Weapon : MonoBehaviour
     public float range;
     public float speed;
 
+    Collider2D weaponCollider;
+
     WeaponState state = WeaponState.Idle;
 
     float remainingCoolDown = 0f;
 
     float firingAngle;
     Vector3 startPoint;
+
+    void Start()
+    {
+        weaponCollider = GetComponent<Collider2D>();
+        weaponCollider.enabled = false;
+    }
 
     void Update()
     {
@@ -66,7 +74,10 @@ public class Weapon : MonoBehaviour
             * Time.deltaTime;
 
         if (Vector3.Distance(transform.position, startPoint) >= range)
+        {
+            weaponCollider.enabled = false;
             state = WeaponState.Returning;
+        }
     }
 
     void HandleReturning()
@@ -84,6 +95,8 @@ public class Weapon : MonoBehaviour
     void Fire(float angle)
     {
         state = WeaponState.Firing;
+        weaponCollider.enabled = true;
+
         startPoint = transform.position;
         firingAngle = angle;
     }
@@ -122,9 +135,14 @@ public class Weapon : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy") && state == WeaponState.Firing)
+        var parent = other.transform.parent;
+
+        if (parent == null)
+            return;
+
+        if (parent.CompareTag("Enemy") && state == WeaponState.Firing)
         {
-            other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            parent.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
 }
