@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 
     public GameObject xpBar;
 
+    public GameObject followerPrefab;
+
     void Update()
     {
         HandleMovement();
@@ -51,8 +53,14 @@ public class Player : MonoBehaviour
         if (xp >= getLevelUpCost())
         {
             xp -= getLevelUpCost();
-            level++;
+            LevelUp();
         }
+    }
+
+    void LevelUp()
+    {
+        level++;
+        Instantiate(followerPrefab, transform.position, Quaternion.identity);
     }
 
     int getLevelUpCost()

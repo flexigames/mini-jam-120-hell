@@ -84,15 +84,15 @@ public class Enemy : MonoBehaviour
         float closestDistance = Vector3.Distance(transform.position, player.transform.position);
         var target = player;
 
-        foreach (GameObject candidate in followers)
-        {
-            float distance = Vector3.Distance(transform.position, candidate.transform.position);
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                target = candidate;
-            }
-        }
+        // foreach (GameObject candidate in followers)
+        // {
+        //     float distance = Vector3.Distance(transform.position, candidate.transform.position);
+        //     if (distance < closestDistance)
+        //     {
+        //         closestDistance = distance;
+        //         target = candidate;
+        //     }
+        // }
 
         return target;
     }
