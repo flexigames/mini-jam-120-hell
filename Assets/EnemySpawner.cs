@@ -39,7 +39,21 @@ public class EnemySpawner : MonoBehaviour
 
     float getSpawnInterval()
     {
-        return 3f / waveNumber;
+        var currentNumberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+        var spawnInterval = 3f / waveNumber;
+
+        if (currentNumberOfEnemies < getMinimumAmount())
+        {
+            return spawnInterval / 4;
+        }
+
+        return spawnInterval;
+    }
+
+    int getMinimumAmount()
+    {
+        return 5 + waveNumber * 3;
     }
 
     void SpawnEnemy()
