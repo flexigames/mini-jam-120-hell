@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public float speed;
     public float followerRange;
 
+    int level = 1;
+
     int xp = 0;
 
     public TextMeshProUGUI lifeText;
@@ -40,11 +42,21 @@ public class Player : MonoBehaviour
     void UpdateUI()
     {
         lifeText.text = "Life: " + GetComponent<Health>().health;
-        xpBar.transform.localScale = new Vector3(xp / 10f, 1, 1);
+        xpBar.transform.localScale = new Vector3((float)xp / getLevelUpCost(), 1, 1);
     }
 
     public void AddXP(int amount)
     {
         xp += amount;
+        if (xp >= getLevelUpCost())
+        {
+            xp -= getLevelUpCost();
+            level++;
+        }
+    }
+
+    int getLevelUpCost()
+    {
+        return 5 + (level - 1) * 10;
     }
 }

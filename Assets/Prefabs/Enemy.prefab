@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coolDown: 1
-  health: 3
+  health: 1
   deathDrop: {fileID: 4547461502382621070, guid: 992883271e7ea429fb6bd66567793aa6, type: 3}
 --- !u!114 &-5485577873178999803
 MonoBehaviour:
