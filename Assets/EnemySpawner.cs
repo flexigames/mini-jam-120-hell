@@ -24,6 +24,9 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
+        if (Game.isPaused)
+            return;
+
         if (remainingSpawnTime <= 0f)
         {
             SpawnEnemy();

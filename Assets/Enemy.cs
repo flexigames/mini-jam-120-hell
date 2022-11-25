@@ -39,6 +39,9 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if (Game.isPaused)
+            return;
+
         if (timeUntilActive > 0f)
         {
             timeUntilActive -= Time.deltaTime;

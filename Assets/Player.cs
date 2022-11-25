@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 
     public float pickupRange;
 
+    public GameObject choicesUi;
+
     int level = 1;
 
     int xp = 0;
@@ -28,6 +30,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (Game.isPaused)
+            return;
+
         HandleMovement();
 
         UpdateUI();
@@ -66,6 +71,10 @@ public class Player : MonoBehaviour
     {
         level++;
         Instantiate(followerPrefab, transform.position, Quaternion.identity);
+        UpdateUI();
+        Game.isPaused = true;
+        Time.timeScale = 0;
+        choicesUi.SetActive(true);
     }
 
     int getLevelUpCost()

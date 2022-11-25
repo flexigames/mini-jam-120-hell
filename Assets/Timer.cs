@@ -16,6 +16,9 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+        if (Game.isPaused)
+            return;
+
         time += Time.deltaTime;
 
         int minutes = (int)time / 60;

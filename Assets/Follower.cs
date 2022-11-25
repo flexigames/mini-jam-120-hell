@@ -16,7 +16,12 @@ public class Follower : MonoBehaviour
 
     void Update()
     {
+        if (Game.isPaused)
+            return;
+
         HandleMovement();
+
+        UpdateMaxDistance();
     }
 
     void HandleMovement()
@@ -50,5 +55,11 @@ public class Follower : MonoBehaviour
         var distanceJoint = GetComponent<DistanceJoint2D>();
         distanceJoint.distance = player.followerRange;
         distanceJoint.connectedBody = player.GetComponent<Rigidbody2D>();
+    }
+
+    void UpdateMaxDistance()
+    {
+        var distanceJoint = GetComponent<DistanceJoint2D>();
+        distanceJoint.distance = player.followerRange;
     }
 }
