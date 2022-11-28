@@ -12,13 +12,14 @@ public class ChoicesMenu : MonoBehaviour
 
     int currentChoiceIndex = 0;
 
-    UpgradeChoice[] upgradeChoices = new UpgradeChoice[5]
+    UpgradeChoice[] upgradeChoices = new UpgradeChoice[]
     {
         new ArmyRangeUpgrade(),
         new PickupRadiusUpgrade(),
         new SpeedUpgrade(),
         new HealthUpgrade(),
-        new DamageUpgrade()
+        new DamageUpgrade(),
+        new HealUpgrade(),
     };
 
     UpgradeChoice[] currentChoices = new UpgradeChoice[3];
@@ -32,6 +33,7 @@ public class ChoicesMenu : MonoBehaviour
     void SetRandomUpgradeChoices()
     {
         var random = new System.Random();
+
         currentChoices = new List<UpgradeChoice>(upgradeChoices)
             .OrderBy(x => random.Next())
             .Take(3)
@@ -78,9 +80,6 @@ public class ChoicesMenu : MonoBehaviour
         Time.timeScale = 1f;
         currentChoices[currentChoiceIndex].Apply();
         SetRandomUpgradeChoices();
-
-        var playerHealth = GameObject.Find("Player").GetComponent<Health>();
-        playerHealth.Reset();
 
         gameObject.SetActive(false);
     }

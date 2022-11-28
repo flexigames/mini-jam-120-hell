@@ -71,11 +71,15 @@ public class Player : MonoBehaviour
     void LevelUp()
     {
         level++;
-        Instantiate(followerPrefab, transform.position, Quaternion.identity);
         UpdateUI();
         Game.isPaused = true;
         Time.timeScale = 0;
         choicesUi.SetActive(true);
+    }
+
+    public void SpawnFollower()
+    {
+        Instantiate(followerPrefab, transform.position, Quaternion.identity);
     }
 
     int getLevelUpCost()

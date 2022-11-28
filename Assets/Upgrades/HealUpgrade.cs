@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-class HealthUpgrade : UpgradeChoice
+class HealUpgrade : UpgradeChoice
 {
-    float modifier = 2f;
-
-    public string title = "Player Max HP";
-    public string description = "+2";
+    public string title = "Full Heal";
+    public string description = "Heal to full HP";
 
     public string GetTitle()
     {
@@ -23,7 +21,6 @@ class HealthUpgrade : UpgradeChoice
     {
         var playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
 
-        playerHealth.maxHealth += modifier;
-        playerHealth.health += modifier;
+        playerHealth.Reset();
     }
 }

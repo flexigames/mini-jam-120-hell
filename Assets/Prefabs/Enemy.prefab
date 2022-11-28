@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c215ae46c3174ab3b35748a48ade513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolDown: 1
+  coolDown: 0.1
   health: 20
   deathDrop: {fileID: 4547461502382621070, guid: 992883271e7ea429fb6bd66567793aa6, type: 3}
 --- !u!114 &-5485577873178999803
