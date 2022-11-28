@@ -35,8 +35,12 @@ public class Health : MonoBehaviour
             enemy.OnDeath();
 
         var player = GetComponent<Player>();
-        if (player != null && health <= 0)
-            player.OnDeath();
+        if (player != null)
+        {
+            Sounds.Play("Hurt");
+            if (health <= 0)
+                player.OnDeath();
+        }
     }
 
     void FlashDamage()

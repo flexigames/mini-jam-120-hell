@@ -9,6 +9,7 @@ public class Drop : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             collider.gameObject.GetComponent<Player>().AddXP(1);
+            Sounds.Play("Click");
             Destroy(gameObject);
         }
     }

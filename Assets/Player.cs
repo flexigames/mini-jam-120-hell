@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        Sounds.Play("Evil_Laugh");
         movement = GetComponent<Movement>();
     }
 
@@ -71,6 +72,7 @@ public class Player : MonoBehaviour
 
     void LevelUp()
     {
+        Sounds.Play("Pause");
         level++;
         UpdateUI();
         Game.isPaused = true;

@@ -104,6 +104,7 @@ public class Enemy : MonoBehaviour
 
         if (health != null)
         {
+            Sounds.Play("Bump");
             health.TakeDamage(1f);
             remainingCoolDown = coolDown;
         }

@@ -95,6 +95,7 @@ public class Weapon : MonoBehaviour
 
     void Fire(float angle)
     {
+        Sounds.Play("Sword_Slash");
         state = WeaponState.Firing;
         weaponCollider.enabled = true;
 
@@ -143,6 +144,7 @@ public class Weapon : MonoBehaviour
 
         if (parent.CompareTag("Enemy") && state == WeaponState.Firing)
         {
+            Sounds.Play("Bump");
             parent.GetComponent<Health>().TakeDamage(Weapon.damage);
         }
     }

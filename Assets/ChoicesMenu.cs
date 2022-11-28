@@ -50,6 +50,7 @@ public class ChoicesMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
+            Sounds.Play("Click");
             currentChoiceIndex++;
             if (currentChoiceIndex >= choices.Length)
             {
@@ -60,6 +61,7 @@ public class ChoicesMenu : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            Sounds.Play("Click");
             currentChoiceIndex--;
             if (currentChoiceIndex < 0)
             {
@@ -80,6 +82,7 @@ public class ChoicesMenu : MonoBehaviour
         Time.timeScale = 1f;
         currentChoices[currentChoiceIndex].Apply();
         SetRandomUpgradeChoices();
+        Sounds.Play("Powerup");
 
         gameObject.SetActive(false);
     }

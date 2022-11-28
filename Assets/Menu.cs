@@ -10,6 +10,7 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
+        Sounds.Play("Monster_Scream");
         var time = Timer.time;
         int minutes = (int)time / 60;
         int seconds = (int)time % 60;
