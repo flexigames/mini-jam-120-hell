@@ -20,6 +20,7 @@ public class ChoicesMenu : MonoBehaviour
         new HealthUpgrade(),
         new DamageUpgrade(),
         new HealUpgrade(),
+        new SpawnMinionUpgrade(),
     };
 
     UpgradeChoice[] currentChoices = new UpgradeChoice[3];
