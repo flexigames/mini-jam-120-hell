@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float coolDown;
-    public float health;
 
     public GameObject deathDrop;
 
@@ -83,7 +82,7 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.tag != "Player" && other.gameObject.tag != "Follower")
+        if (other.gameObject.tag != "Player")
             return;
 
         isAttacking = true;
@@ -118,27 +117,10 @@ public class Enemy : MonoBehaviour
         float closestDistance = Vector3.Distance(transform.position, player.transform.position);
         var target = player;
 
-        // foreach (GameObject candidate in followers)
-        // {
-        //     float distance = Vector3.Distance(transform.position, candidate.transform.position);
-        //     if (distance < closestDistance)
-        //     {
-        //         closestDistance = distance;
-        //         target = candidate;
-        //     }
-        // }
-
         return target;
     }
 
-    public void TakeDamage(float damage)
-    {
-        health -= damage;
-        if (health <= 0)
-            OnDeath();
-    }
-
-    void OnDeath()
+    public void OnDeath()
     {
         Destroy(gameObject);
         if (deathDrop != null)

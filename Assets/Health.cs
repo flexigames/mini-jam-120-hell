@@ -7,9 +7,17 @@ public class Health : MonoBehaviour
     public float maxHealth;
     public float health;
 
+    private Shader shaderGUItext;
+    private Shader shaderSpritesDefault;
+
+    SpriteRenderer spriteRenderer;
+
     void Start()
     {
         Reset();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        shaderGUItext = Shader.Find("GUI/Text Shader");
+        shaderSpritesDefault = spriteRenderer.material.shader;
     }
 
     public void Reset()
@@ -20,5 +28,22 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        FlashDamage();
+
+        var enemy = GetComponent<Enemy>();
+        if (enemy != null && health <= 0)
+            enemy.OnDeath();
+    }
+
+    void FlashDamage()
+    {
+        StartCoroutine(FlashDamageCoroutine());
+    }
+
+    IEnumerator FlashDamageCoroutine()
+    {
+        spriteRenderer.material.shader = shaderGUItext;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.material.shader = shaderSpritesDefault;
     }
 }

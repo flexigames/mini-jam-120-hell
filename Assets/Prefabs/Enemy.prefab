@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: -5485577873178999803}
   - component: {fileID: 6325117517867720215}
   - component: {fileID: -8476145962424786779}
+  - component: {fileID: 8331586257246883300}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -160,7 +161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coolDown: 0.1
-  health: 20
   deathDrop: {fileID: 4547461502382621070, guid: 992883271e7ea429fb6bd66567793aa6, type: 3}
 --- !u!114 &-5485577873178999803
 MonoBehaviour:
@@ -222,3 +222,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8331586257246883300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6325117517867720211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bda45209683347718b632fffe1a1e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  health: 20

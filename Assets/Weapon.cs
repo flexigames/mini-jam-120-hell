@@ -143,7 +143,7 @@ public class Weapon : MonoBehaviour
 
         if (parent.CompareTag("Enemy") && state == WeaponState.Firing)
         {
-            parent.GetComponent<Enemy>().TakeDamage(Weapon.damage);
+            parent.GetComponent<Health>().TakeDamage(Weapon.damage);
         }
     }
 }
