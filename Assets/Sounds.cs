@@ -26,6 +26,9 @@ public class Sounds : MonoBehaviour
 
     public static void Play(string name)
     {
-        instance.audioSource.PlayOneShot(instance.clips[name]);
+        if (instance != null)
+        {
+            instance.audioSource.PlayOneShot(instance.clips[name]);
+        }
     }
 }

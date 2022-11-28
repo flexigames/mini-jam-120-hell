@@ -53,9 +53,15 @@ public class Player : MonoBehaviour
             0
         );
 
-        animator.SetBool("Running", direction != Vector3.zero);
+        if (animator != null)
+        {
+            animator.SetBool("Running", direction != Vector3.zero);
+        }
 
-        movement.SetDirection(direction);
+        if (movement != null)
+        {
+            movement.SetDirection(direction);
+        }
     }
 
     void UpdateUI()
