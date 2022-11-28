@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ballimage_0001_layer-45_0
+      name: player_idle_1
       rect:
         serializedVersion: 2
         x: 0
@@ -1176,7 +1176,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ballimage_0001_layer-45_51
+      name: player_idle_2
       rect:
         serializedVersion: 2
         x: 16
@@ -1197,7 +1197,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ballimage_0001_layer-45_52
+      name: player_idle_3
       rect:
         serializedVersion: 2
         x: 32
@@ -1218,7 +1218,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ballimage_0001_layer-45_53
+      name: player_idle_4
       rect:
         serializedVersion: 2
         x: 48
@@ -1239,7 +1239,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ballimage_0001_layer-45_54
+      name: player_run_1
       rect:
         serializedVersion: 2
         x: 65
@@ -1260,7 +1260,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ballimage_0001_layer-45_55
+      name: player_run_2
       rect:
         serializedVersion: 2
         x: 81
@@ -1281,7 +1281,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ballimage_0001_layer-45_56
+      name: player_run_3
       rect:
         serializedVersion: 2
         x: 98
@@ -1302,7 +1302,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ballimage_0001_layer-45_57
+      name: player_run_4
       rect:
         serializedVersion: 2
         x: 114
@@ -1842,40 +1842,41 @@ TextureImporter:
       ballimage_0001_layer-45_66: 1228506875
       ballimage_0001_layer-45_47: -222647816
       ballimage_0001_layer-45_67: -823329522
-      ballimage_0001_layer-45_55: 2062441123
       ballimage_0001_layer-45_7: 1222081019
       ballimage_0001_layer-45_68: -394683966
+      player_idle_1: 1917662546
       ballimage_0001_layer-45_22: 328098498
-      ballimage_0001_layer-45_56: -1468709037
+      ballimage_0001_layer-45_77: -1673562457
       ballimage_0001_layer-45_21: -1250078784
       ballimage_0001_layer-45_43: -1580858631
       ballimage_0001_layer-45_18: -595525412
-      ballimage_0001_layer-45_57: 1631141681
+      ballimage_0001_layer-45_61: 1323582233
       ballimage_0001_layer-45_46: -1095184422
-      ballimage_0001_layer-45_77: -1673562457
       ballimage_0001_layer-45_42: -539694361
       ballimage_0001_layer-45_31: 1994410928
       ballimage_0001_layer-45_20: -1331063583
       ballimage_0001_layer-45_19: 849894010
-      ballimage_0001_layer-45_61: 1323582233
+      ballimage_0001_layer-45_74: -623294177
       ballimage_0001_layer-45_26: -1968476099
       ballimage_0001_layer-45_69: 905787550
-      ballimage_0001_layer-45_74: -623294177
       ballimage_0001_layer-45_25: -1278800647
       ballimage_0001_layer-45_35: 1581747884
       ballimage_0001_layer-45_64: -297885987
       ballimage_0001_layer-45_10: 1311916421
       ballimage_0001_layer-45_12: 1208752369
       ballimage_0001_layer-45_41: 1350204640
+      player_idle_3: 958388092
+      player_run_4: 1631141681
       ballimage_0001_layer-45_4: -1203978045
       ballimage_0001_layer-45_3: 2065426677
       ballimage_0001_layer-45_16: -554771731
       ballimage_0001_layer-45_13: 510181438
       ballimage_0001_layer-45_15: 406683643
       ballimage_0001_layer-45_23: -2049409006
+      player_idle_4: 775933422
       ballimage_0001_layer-45_60: -1131486873
       ballimage_0001_layer-45_24: 2061748656
-      ballimage_0001_layer-45_51: 158413168
+      ballimage_0001_layer-45_75: 704114752
       ballimage_0001_layer-45_45: 1685677727
       ballimage_0001_layer-45_33: -827099461
       ballimage_0001_layer-45_28: -1410029140
@@ -1887,32 +1888,31 @@ TextureImporter:
       ballimage_0001_layer-45_37: -1293190593
       ballimage_0001_layer-45_38: -1264999550
       ballimage_0001_layer-45_9: -967538677
-      ballimage_0001_layer-45_53: 775933422
+      ballimage_0001_layer-45_59: 1561200340
       ballimage_0001_layer-45_14: 2119006274
       ballimage_0001_layer-45_34: 1779352760
-      ballimage_0001_layer-45_0: 1917662546
       ballimage_0001_layer-45_1: 918458003
+      ballimage_0001_layer-45_6: 644730295
       ballimage_0001_layer-45_5: -2058672762
       ballimage_0001_layer-45_62: -1790996430
-      ballimage_0001_layer-45_59: 1561200340
-      ballimage_0001_layer-45_6: 644730295
+      player_run_1: -698463089
       ballimage_0001_layer-45_50: -331279547
+      player_run_3: -1468709037
       ballimage_0001_layer-45_73: -1336432235
       ballimage_0001_layer-45_63: 643966278
       ballimage_0001_layer-45_27: -1974898648
       ballimage_0001_layer-45_8: 1230347029
+      player_idle_2: 158413168
       ballimage_0001_layer-45_65: 1393100641
       ballimage_0001_layer-45_70: 67719252
       ballimage_0001_layer-45_29: -2104854594
+      player_run_2: 2062441123
       ballimage_0001_layer-45_32: -1643689196
-      ballimage_0001_layer-45_54: -698463089
-      ballimage_0001_layer-45_52: 958388092
+      ballimage_0001_layer-45_71: 453230036
       ballimage_0001_layer-45_79: 1063355637
       ballimage_0001_layer-45_17: -360566590
       ballimage_0001_layer-45_11: -1158115212
       ballimage_0001_layer-45_30: -540985837
-      ballimage_0001_layer-45_75: 704114752
-      ballimage_0001_layer-45_71: 453230036
       ballimage_0001_layer-45_78: 964751620
       ballimage_0001_layer-45_49: 556582997
       ballimage_0001_layer-45_40: 827794052

@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 9080663257090545494}
   - component: {fileID: 9080663257090545496}
   - component: {fileID: -942953070527287806}
+  - component: {fileID: 4562065044184666914}
   m_Layer: 0
   m_Name: Follower
   m_TagString: Follower
@@ -331,6 +332,26 @@ DistanceJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 1
   m_MaxDistanceOnly: 1
+--- !u!95 &4562065044184666914
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080663257090545489}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f76c86a9f051f47e283d3aa225a808a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9080663257235848009
 GameObject:
   m_ObjectHideFlags: 0

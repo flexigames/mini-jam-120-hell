@@ -22,12 +22,15 @@ public class Player : MonoBehaviour
 
     public GameObject followerPrefab;
 
+    Animator animator;
+
     Movement movement;
 
     void Start()
     {
         Sounds.Play("Evil_Laugh");
         movement = GetComponent<Movement>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -49,6 +52,8 @@ public class Player : MonoBehaviour
             Input.GetAxisRaw("Vertical"),
             0
         );
+
+        animator.SetBool("Running", direction != Vector3.zero);
 
         movement.SetDirection(direction);
     }
