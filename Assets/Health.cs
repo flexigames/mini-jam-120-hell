@@ -33,6 +33,10 @@ public class Health : MonoBehaviour
         var enemy = GetComponent<Enemy>();
         if (enemy != null && health <= 0)
             enemy.OnDeath();
+
+        var player = GetComponent<Player>();
+        if (player != null && health <= 0)
+            player.OnDeath();
     }
 
     void FlashDamage()

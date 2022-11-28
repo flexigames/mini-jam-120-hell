@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Player : MonoBehaviour
@@ -103,5 +104,10 @@ public class Player : MonoBehaviour
                 );
             }
         }
+    }
+
+    public void OnDeath()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }
