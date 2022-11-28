@@ -53,7 +53,8 @@ public class Player : MonoBehaviour
 
     void UpdateUI()
     {
-        lifeText.text = "Life: " + GetComponent<Health>().health;
+        lifeText.text =
+            "Life: " + GetComponent<Health>().health + "/" + GetComponent<Health>().maxHealth;
         xpBar.transform.localScale = new Vector3((float)xp / getLevelUpCost(), 1, 1);
     }
 
@@ -85,6 +86,7 @@ public class Player : MonoBehaviour
     void PullDropsWithinRange()
     {
         var pickups = GameObject.FindGameObjectsWithTag("Drop");
+
         foreach (var pickup in pickups)
         {
             float distance = Vector3.Distance(transform.position, pickup.transform.position);
@@ -93,7 +95,7 @@ public class Player : MonoBehaviour
                 pickup.transform.position = Vector3.MoveTowards(
                     pickup.transform.position,
                     transform.position,
-                    11 * Time.deltaTime
+                    (movement.speed + 1) * Time.deltaTime
                 );
             }
         }

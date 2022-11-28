@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public enum WeaponState
 {
@@ -11,8 +12,8 @@ public enum WeaponState
 
 public class Weapon : MonoBehaviour
 {
+    public static float damage = 10f;
     public float coolDown;
-    public float damage;
     public float range;
     public float speed;
 
@@ -142,7 +143,7 @@ public class Weapon : MonoBehaviour
 
         if (parent.CompareTag("Enemy") && state == WeaponState.Firing)
         {
-            parent.GetComponent<Enemy>().TakeDamage(damage);
+            parent.GetComponent<Enemy>().TakeDamage(Weapon.damage);
         }
     }
 }

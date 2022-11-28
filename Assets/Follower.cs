@@ -7,6 +7,8 @@ public class Follower : MonoBehaviour
     Player player;
     Movement movement;
 
+    public Weapon weapon;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();

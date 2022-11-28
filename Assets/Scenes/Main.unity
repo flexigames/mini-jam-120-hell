@@ -5797,6 +5797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bda45209683347718b632fffe1a1e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
   health: 10
 --- !u!114 &669172258
 MonoBehaviour:
@@ -6737,6 +6738,10 @@ PrefabInstance:
     - target: {fileID: 9080663257090545498, guid: 92a8d2437738d4255ace023614e45620, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9080663257090545499, guid: 92a8d2437738d4255ace023614e45620, type: 3}
+      propertyPath: maxHealth
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92a8d2437738d4255ace023614e45620, type: 3}

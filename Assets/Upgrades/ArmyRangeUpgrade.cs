@@ -7,7 +7,7 @@ class ArmyRangeUpgrade : UpgradeChoice
     float modifier = 1.5f;
 
     public string title = "Army Range";
-    public string description = "Range +1.5";
+    public string description = "+1.5";
 
     public string GetTitle()
     {

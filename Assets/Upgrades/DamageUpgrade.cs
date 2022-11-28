@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-class SpeedUpgrade : UpgradeChoice
+class DamageUpgrade : UpgradeChoice
 {
     float modifier = 2f;
 
-    public string title = "Player Speed";
-    public string description = "Speed +2";
+    public string title = "Minion Damage";
+    public string description = "+20%";
 
     public string GetTitle()
     {
@@ -21,8 +21,6 @@ class SpeedUpgrade : UpgradeChoice
 
     public void Apply()
     {
-        var playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
-
-        playerMovement.speed += modifier;
+        Weapon.damage += modifier;
     }
 }
