@@ -55,8 +55,7 @@ public class Player : MonoBehaviour
 
     void UpdateUI()
     {
-        lifeText.text =
-            "Life: " + GetComponent<Health>().health + "/" + GetComponent<Health>().maxHealth;
+        lifeText.text = GetComponent<Health>().health + "/" + GetComponent<Health>().maxHealth;
         xpBar.transform.localScale = new Vector3((float)xp / getLevelUpCost(), 1, 1);
     }
 

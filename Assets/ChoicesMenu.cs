@@ -91,14 +91,14 @@ public class ChoicesMenu : MonoBehaviour
     {
         for (int i = 0; i < choices.Length; i++)
         {
-            var image = choices[i].GetComponent<UnityEngine.UI.Image>();
+            var image = choices[i];
             if (i == currentChoiceIndex)
             {
-                image.color = selectedColor;
+                image.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
             }
             else
             {
-                image.color = defaultColor;
+                image.transform.localScale = new Vector3(1, 1, 1);
             }
         }
     }
