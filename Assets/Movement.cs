@@ -8,9 +8,22 @@ public class Movement : MonoBehaviour
 
     Rigidbody2D rigidBody;
 
+    SpriteRenderer spriteRenderer;
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    void Update()
+    {
+        var velocity = rigidBody.velocity;
+
+        if (velocity.x > 0)
+            spriteRenderer.flipX = false;
+        else if (velocity.x < 0)
+            spriteRenderer.flipX = true;
     }
 
     public void SetDirection(Vector3 direction)
