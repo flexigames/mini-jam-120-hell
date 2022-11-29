@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
 
     public GameObject deathDrop;
 
+    public float damage;
+
     float remainingCoolDown = 0f;
 
     bool isAttacking = false;
@@ -105,7 +107,7 @@ public class Enemy : MonoBehaviour
         if (health != null)
         {
             Sounds.Play("Bump");
-            health.TakeDamage(1f);
+            health.TakeDamage(damage);
             remainingCoolDown = coolDown;
         }
     }

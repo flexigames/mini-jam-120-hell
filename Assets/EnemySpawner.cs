@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs;
 
     public float waveInterval;
 
@@ -64,11 +64,18 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        var randomPosition = getRandomPositionOnTileMap();
+        var randomPosition = GetRandomPositionOnTileMap();
+        var enemyPrefab = GetRandomEnemyPrefab();
         Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
     }
 
-    Vector3 getRandomPositionOnTileMap()
+    GameObject GetRandomEnemyPrefab()
+    {
+        var randomIndex = Random.Range(0, enemyPrefabs.Length);
+        return enemyPrefabs[randomIndex];
+    }
+
+    Vector3 GetRandomPositionOnTileMap()
     {
         var randomX = Random.Range(tileMap.cellBounds.xMin + 1, tileMap.cellBounds.xMax - 1);
         var randomY = Random.Range(tileMap.cellBounds.yMin + 1, tileMap.cellBounds.yMax - 1);
