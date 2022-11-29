@@ -77,8 +77,8 @@ public class EnemySpawner : MonoBehaviour
 
     Vector3 GetRandomPositionOnTileMap()
     {
-        var randomX = Random.Range(tileMap.cellBounds.xMin + 1, tileMap.cellBounds.xMax - 1);
-        var randomY = Random.Range(tileMap.cellBounds.yMin + 1, tileMap.cellBounds.yMax - 1);
+        var randomX = Random.Range(tileMap.cellBounds.xMin + 2, tileMap.cellBounds.xMax - 2);
+        var randomY = Random.Range(tileMap.cellBounds.yMin + 2, tileMap.cellBounds.yMax - 2);
 
         var randomPosition = new Vector3Int(randomX, randomY, 0);
 
