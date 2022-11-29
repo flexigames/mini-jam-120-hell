@@ -6714,6 +6714,8 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 6325117517867720211, guid: 6ae40da63c1aa41ccad0ed5eae2e437d, type: 3}
   - {fileID: 6325117517867720211, guid: 229d99c3c32c1459cb567d53b828d828, type: 3}
+  - {fileID: 6325117517867720211, guid: 647b4195b074148b08c56872a7e08e82, type: 3}
+  - {fileID: 6325117517867720211, guid: 3bc47a0ab4b6c4a329e8c5ca5ed480a9, type: 3}
   waveInterval: 30
   tileMap: {fileID: 579442240}
 --- !u!4 &1805090625

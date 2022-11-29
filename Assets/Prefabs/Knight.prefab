@@ -138,7 +138,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 8e57638e543364d51a29d97a7abb4564, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2ce28d87bb9b43fb846d69d2c618257, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826b0916eb1f241a4a5d955755ce2c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.5
 --- !u!61 &6325117517867720215
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -236,8 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bda45209683347718b632fffe1a1e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  health: 20
+  maxHealth: 30
+  health: 30
 --- !u!95 &3282279367665022287
 Animator:
   serializedVersion: 4

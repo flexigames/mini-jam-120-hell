@@ -73,9 +73,9 @@ GameObject:
   - component: {fileID: 6325117517867720215}
   - component: {fileID: -8476145962424786779}
   - component: {fileID: 8331586257246883300}
-  - component: {fileID: -6454051517964937634}
+  - component: {fileID: 2984559226923834908}
   m_Layer: 0
-  m_Name: Elf
+  m_Name: Knight 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,7 +138,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 397d32dd18d6e4e9a8120e4294defd13, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8e57638e543364d51a29d97a7abb4564, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolDown: 0.1
   deathDrop: {fileID: 4547461502382621070, guid: 992883271e7ea429fb6bd66567793aa6, type: 3}
-  damage: 1
+  damage: 2
 --- !u!114 &-5485577873178999803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826b0916eb1f241a4a5d955755ce2c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 1.7
 --- !u!61 &6325117517867720215
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -236,9 +236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bda45209683347718b632fffe1a1e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
-  health: 15
---- !u!95 &-6454051517964937634
+  maxHealth: 27
+  health: 27
+--- !u!95 &2984559226923834908
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -248,7 +248,7 @@ Animator:
   m_GameObject: {fileID: 6325117517867720211}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 84ef4ae2319ea4501a25c5e6df1a1a09, type: 2}
+  m_Controller: {fileID: 9100000, guid: c273c48cbc16840f3916ffe01e725e31, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
