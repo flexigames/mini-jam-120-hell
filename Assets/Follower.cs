@@ -9,6 +9,8 @@ public class Follower : MonoBehaviour
 
     public Weapon weapon;
 
+    GameObject currentTarget;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -24,6 +26,21 @@ public class Follower : MonoBehaviour
         HandleMovement();
 
         UpdateMaxDistance();
+
+        CheckCurrentTargetDistance();
+    }
+
+    void CheckCurrentTargetDistance()
+    {
+        if (currentTarget == null)
+            return;
+
+        var distance = Vector3.Distance(transform.position, currentTarget.transform.position);
+
+        if (distance > 1.5)
+        {
+            currentTarget = null;
+        }
     }
 
     void HandleMovement()
@@ -33,6 +50,12 @@ public class Follower : MonoBehaviour
 
     void MoveTowardsClosestEnemy()
     {
+        if (currentTarget != null)
+        {
+            movement.SetTarget(currentTarget);
+            return;
+        }
+
         var enemies = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject closestEnemy = null;
         float closestDistance = float.MaxValue;
@@ -48,6 +71,7 @@ public class Follower : MonoBehaviour
 
         if (closestEnemy != null)
         {
+            currentTarget = closestEnemy;
             movement.SetTarget(closestEnemy);
         }
     }
